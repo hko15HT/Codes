@@ -5,7 +5,7 @@ import readchar
 
 def format(): # テキストファイルを整形して学習データを作成
     # txtファイルを開く
-    with open(r"markov\sample.txt", "r", encoding="utf-8") as f:
+    with open(r"file.txt", "r", encoding="utf-8") as f: #file.txtにはファイルのパスを指定
         content = f.read().replace("\n", "")
         print(content)
         # 句読点(。)で区切る(。は含む)
@@ -112,11 +112,11 @@ def generate_sentence(): # マルコフ辞書をもとに文を生成
     # 出力
     print(output)
 
-def train():
+def train(): #手動訓練用　対応する数字キーを押すことで評価を実行
 
     global malkov_dict
 
-    assess = int(readchar.readchar())/2 # 1->0.5, 2->1, 3->1.5
+    assess = int(readchar.readchar())/2 # 1->0.5, 2->1, 3->1.5　評価値、乗算形式
 
     malkov_dict["first"][seed[0]] *= assess
 
